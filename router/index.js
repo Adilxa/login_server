@@ -6,10 +6,10 @@ const userController = require("../controllers/user-controller");
 const authMiddleware = require("../middlewares/auth-middleware");
 
 router.post(
-  "/registration",
-  body("email").isEmail(),
-  body("password").isLength({ min: 3, max: 35 }),
-  userController.registration
+    "/registration",
+    body("email").isEmail(),
+    body("password").isLength({ min: 3, max: 35 }),
+    userController.registration
 );
 router.post("/login", userController.login);
 router.post("/logout", userController.logout);

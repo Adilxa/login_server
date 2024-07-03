@@ -22,10 +22,21 @@ app.use("/api", router);
 
 app.use("/static", express.static("public"));
 
-// Endpoint to generate the widget script
 app.post("/api/generate-widget", (req, res) => {
-    const { widgetId } = req.body;
-    const script = `<script src="http://localhost:${PORT}/static/widget.js?widgetId=${widgetId}"></script>`;
+    const { color, fontSize, width, height, boxShadow } = req.body;
+    const script = `<script src="${
+        process.env.DEPLOYED_URL
+    }/static/widget.js?color=${encodeURIComponent(
+        color || "#000"
+    )}&fontSize=${encodeURIComponent(
+        fontSize || "16px"
+    )}&width=${encodeURIComponent(
+        width || "300px"
+    )}&height=${encodeURIComponent(
+        height || "400px"
+    )}&boxShadow=${encodeURIComponent(
+        boxShadow || "0px 4px 8px rgba(0, 0, 0, 0.1)"
+    )}"></script>`;
     res.json({ script });
 });
 

@@ -22,7 +22,7 @@
     chatBox.style.color = color;
     chatBox.style.fontSize = fontSize;
     chatBox.style.boxShadow = boxShadow;
-    chatBox.innerHTML = `<h2>Chat Widget</h2><p>Welcome to our chat service!</p>`;
+    chatBox.innerHTML = `<h2>AtAI GAY</h2><p>Welcome to our chat service!</p>`;
 
     document.body.appendChild(chatBox);
 })();
